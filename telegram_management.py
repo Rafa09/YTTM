@@ -11,6 +11,4 @@ def telegram_connector(app_id, app_hash):
 
 def message_dict(dict):
     result_array = dict['result']
-    print(result_array)
-    result_dic = result_array[0]
-    print(result_dic)
+    return result_array
