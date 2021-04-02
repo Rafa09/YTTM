@@ -25,13 +25,16 @@ print(text_test)
 print('alpha')
 print(type(text_test))
 i=0
-while (i<40):
+while (i<len(text_test)):
     print(text_test[i])
     print(type(text_test[i]))
     print(text_test[i]['update_id'])
-    if (text_test[i]['update_id']==434233489):
+
+    if (text_test[i]['update_id']==434233490):
         print(text_test[i]['message']['text'])
+        telegram_management.telegram_send('739621619', 'ugh')
         audio_converter.audio_converter(text_test[i]['message']['text'], ydl_opts)
+        i=i+1
     else:
         print(i)
         i=i+1
