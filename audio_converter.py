@@ -1,5 +1,7 @@
 from pydub import AudioSegment
 import youtube_dl
+import variables_yt_dl
+import telegram_management
 
 def audio_converter(link, ydl_opts):
     # link contains the YT-link, ydl-opts your preferred download settings.
@@ -8,12 +10,35 @@ def audio_converter(link, ydl_opts):
     # output e.g. is outtempl
 
     with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-        result = ydl.extract_info(link, download=False)
+        try:
+            result = ydl.extract_info(link, download=False)
+            if 'entries' in result:
+            # doesnt work
+                return False
+            else:
+                ydl.download([link])
+                return True
+        except :
+            return False
+
         # We just want to extract the info
         # Error message to be added if it is not a video link
 
-    if 'entries' in result:
-        #doesnt work
-        print('error')
-    else:
-        ydl.download([link])
+
+
+
+def return_name(link):
+    with youtube_dl.YoutubeDL(variables_yt_dl.ydl_opts) as ydl:
+        result = ydl.extract_info(link, download=False)
+
+        print(result['title'])
+
+
+def supported(url):
+    ies = youtube_dl.extractor.gen_extractors()
+    for ie in ies:
+        if ie.suitable(url) and ie.IE_NAME != 'generic':
+            # Site has dedicated extractor
+            return True
+    return False
+
