@@ -29,9 +29,11 @@ def audio_converter(link, ydl_opts):
 
 def return_name(link):
     with youtube_dl.YoutubeDL(variables_yt_dl.ydl_opts) as ydl:
-        result = ydl.extract_info(link, download=False)
-
-        print(result['title'])
+        try:
+            result = ydl.extract_info(link, download=False)
+            #print(result['title'])
+        except:
+            return False
 
 
 def supported(url):

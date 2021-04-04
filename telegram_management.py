@@ -17,7 +17,10 @@ def message_dict(dict):
 
 
 def telegram_send(chat_id, name_of_song):
-    with open('/home/rafad/Music/' + name_of_song, 'rb') as audio:
+    print(chat_id)
+    print('haha')
+    print(name_of_song)
+    with open('/home/rafad/Music/' + name_of_song + '.mp3', 'rb') as audio:
         payload = {
             'chat_id': chat_id,
             'title': name_of_song,
