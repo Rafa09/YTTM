@@ -18,7 +18,7 @@ def audio_converter(link, ydl_opts):
             else:
                 ydl.download([link])
                 return True
-        except :
+        except:
             return False
 
         # We just want to extract the info
@@ -30,8 +30,8 @@ def audio_converter(link, ydl_opts):
 def return_name(link):
     with youtube_dl.YoutubeDL(variables_yt_dl.ydl_opts) as ydl:
         try:
-            result = ydl.extract_info(link, download=False)
-            #print(result['title'])
+            result = ydl.extract_info(link, download=False)['title']
+            return result
         except:
             return False
 

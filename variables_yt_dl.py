@@ -1,6 +1,7 @@
+path_to_music = '~/APP'
 ydl_opts = {
     'video': 'no-playlist',
-    'outtmpl': '~/Music/%(title)s.mp3',
+    'outtmpl': path_to_music + '%(title)s.mp3',
     'extract-audio': 'mp3',
     'format': 'bestaudio/best',
     'postprocessors':
@@ -8,3 +9,5 @@ ydl_opts = {
           'preferredcodec': 'mp3',
           'preferredquality': '192'}]
 }
+update_id_last = 434233504
+
