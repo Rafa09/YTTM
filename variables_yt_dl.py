@@ -1,4 +1,4 @@
-path_to_music = '~/APP'
+path_to_music = '/home/admin_telegram_bot/Music/'
 ydl_opts = {
     'video': 'no-playlist',
     'outtmpl': path_to_music + '%(title)s.mp3',
